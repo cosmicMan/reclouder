@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Kind:</b>
+  <%= @storage_service.kind %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @storage_service.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_storage_service_path(@storage_service) %> |
+<%= link_to 'Back', storage_services_path %>

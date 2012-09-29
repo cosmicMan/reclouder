@@ -1,0 +1,72 @@
+<%= form_for(@storage_service, html: { class: 'form-horizontal' } ) do |f| %>
+  <% if @storage_service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@storage_service.errors.count, "error") %> prohibited this storage_service from being saved:</h2>
+
+      <ul>
+      <% @storage_service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :type, class: "control-label" %>
+    <div class="controls">
+      <%= f.select :type, StorageService::TYPES, include_blank: 'Choose type' %>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :name, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name %>
+    </div>
+  </div>
+
+  <!-- dropbox fields -->
+  <div class="type_specific_fields dropbox_fields">
+
+    <div class="control-group">
+      <%= f.label :dropbox_key, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :dropbox_key %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :dropbox_secret, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :dropbox_secret %>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- s3 fields -->
+  <div class="type_specific_fields s3_fields">
+
+    <div class="control-group">
+      <%= f.label :s3_access_key_id, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :s3_access_key_id %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :s3_secret_access_key, class: "control-label" %>
+      <div class="controls">
+        <%= f.text_field :s3_secret_access_key %>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit class: 'btn btn-large btn-primary' %>
+    </div>
+  </div>
+<% end %>

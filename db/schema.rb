@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120929070941) do
+ActiveRecord::Schema.define(:version => 20120929085108) do
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(:version => 20120929070941) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "storage_services", :force => true do |t|
+    t.string   "type"
+    t.string   "name"
+    t.integer  "user_id"
+    t.string   "s3_access_key_id"
+    t.string   "s3_secret_access_key"
+    t.string   "dropbox_key"
+    t.string   "dropbox_secret"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

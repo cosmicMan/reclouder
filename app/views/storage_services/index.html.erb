@@ -1,0 +1,29 @@
+
+
+<h2>Listing storage services</h2>
+
+<table>
+  <tr>
+    <th>Kind</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @storage_services.each do |storage_service| %>
+  <tr>
+    <td><%= storage_service.kind %></td>
+    <td><%= storage_service.name %></td>
+    <td><%= link_to 'Show', storage_service %></td>
+    <td><%= link_to 'Edit', edit_storage_service_path(storage_service) %></td>
+    <td><%= link_to 'Destroy', storage_service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Storage service', 
+      new_storage_service_path,
+      class: 'btn btn-large' %>

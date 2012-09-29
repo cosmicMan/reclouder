@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_many :storage_services
+  
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :token_authenticatable, :database_authenticatable, :registerable,

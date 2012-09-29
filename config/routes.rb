@@ -1,4 +1,6 @@
 Reclouder::Application.routes.draw do
+  resources :storage_services
+
   devise_for :users
 
   root :to => 'welcome#index'
