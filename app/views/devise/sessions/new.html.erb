@@ -1,47 +1,43 @@
-<div class="hero-unit">
+<%= form_for resource, 
+      as: resource_name, 
+      url: session_path(resource_name),
+      html: { class: 'form-horizontal' } do |f| %>
+
+  <legend>Sign in</legend>
   
-  <%= form_for resource, 
-        as: resource_name, 
-        url: session_path(resource_name),
-        html: { class: 'form-horizontal' } do |f| %>
-
-    <legend>Sign in</legend>
+  <div class="control-group">
+    <%= f.label :email, class: 'control-label' %>
     
-    <div class="control-group">
-      <%= f.label :email, class: 'control-label' %>
-      
-      <div class="controls">
-        <%= f.email_field :email %>
-      </div>
+    <div class="controls">
+      <%= f.email_field :email %>
     </div>
+  </div>
 
-    <div class="control-group">
-      <%= f.label :password, class: 'control-label' %>
-      
-      <div class="controls">
-        <%= f.password_field :password %>
-      </div>
-    </div>
-
-    <% if devise_mapping.rememberable? -%>
-      <div class="control-group">
-        <div class="controls">
-          <%= f.label :remember_me, class: 'checkbox' do %>
-            <%= f.check_box :remember_me, class: 'checkbox' %> 
-            Remember Me
-          <% end %>
-        </div>
-      </div>
-    <% end -%>
+  <div class="control-group">
+    <%= f.label :password, class: 'control-label' %>
     
+    <div class="controls">
+      <%= f.password_field :password %>
+    </div>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
     <div class="control-group">
       <div class="controls">
-        <%= f.submit "Sign in", class: 'btn btn-large btn-warning' %>
+        <%= f.label :remember_me, class: 'checkbox' do %>
+          <%= f.check_box :remember_me, class: 'checkbox' %> 
+          Remember Me
+        <% end %>
       </div>
     </div>
-    
-  <% end %>
+  <% end -%>
+  
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Sign in", class: 'btn btn-large btn-warning' %>
+    </div>
+  </div>
+  
+<% end %>
 
-  <%= render "links" %>
-
-</div>
+<%= render "links" %>

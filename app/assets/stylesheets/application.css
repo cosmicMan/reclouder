@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+ .hero-unit {
+  background-color: #F4E4D9;
+ }
